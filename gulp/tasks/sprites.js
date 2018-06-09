@@ -5,11 +5,19 @@ del = require('del'),
 svg2png = require('gulp-svg2png');
 
 var config = {
+<<<<<<< HEAD
  shape: {
   spacing: {
     padding: 1
   }
  },
+=======
+  shape: {
+    spacing: {
+      padding: 1
+    }
+  },
+>>>>>>> build-task
   mode: {
     css: {
       variables: {
@@ -41,8 +49,13 @@ gulp.task('createSprite', ['beginClean'], function() {
 
 gulp.task('createPngCopy', ['createSprite'], function() {
   return gulp.src('./app/temp/sprite/css/*.svg')
+<<<<<<< HEAD
   .pipe(svg2png())
   .pipe(gulp.dest('./app/temp/sprite/css'));
+=======
+    .pipe(svg2png())
+    .pipe(gulp.dest('./app/temp/sprite/css'));
+>>>>>>> build-task
 });
 
 gulp.task('copySpriteGraphic', ['createPngCopy'], function() {

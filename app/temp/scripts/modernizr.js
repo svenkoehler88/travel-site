@@ -1,6 +1,11 @@
 /*!
+<<<<<<< HEAD
  * modernizr v3.6.0
  * Build https://modernizr.com/download?-flexbox-svg-setclasses-dontmin
+=======
+ * modernizr v3.3.1
+ * Build http://modernizr.com/download?-flexbox-svg-setclasses-dontmin
+>>>>>>> build-task
  *
  * Copyright (c)
  *  Faruk Ates
@@ -36,7 +41,11 @@
 
   var ModernizrProto = {
     // The current version, dummy
+<<<<<<< HEAD
     _version: '3.6.0',
+=======
+    _version: '3.3.1',
+>>>>>>> build-task
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -159,6 +168,10 @@
             Modernizr[featureNameSplit[0]] = result;
           } else {
             // cast to a Boolean, if not one already
+<<<<<<< HEAD
+=======
+            /* jshint -W053 */
+>>>>>>> build-task
             if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
               Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
             }
@@ -221,11 +234,15 @@
     if (Modernizr._config.enableClasses) {
       // Add the new classes
       className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+<<<<<<< HEAD
       if (isSVG) {
         docElement.className.baseVal = className;
       } else {
         docElement.className = className;
       }
+=======
+      isSVG ? docElement.className.baseVal = className : docElement.className = className;
+>>>>>>> build-task
     }
 
   }
@@ -233,12 +250,21 @@
   ;
 
   /**
+<<<<<<< HEAD
    * If the browsers follow the spec, then they would expose vendor-specific styles as:
    *   elem.style.WebkitBorderRadius
    * instead of something like the following (which is technically incorrect):
    *   elem.style.webkitBorderRadius
 
    * WebKit ghosts their properties in lowercase but Opera & Moz do not.
+=======
+   * If the browsers follow the spec, then they would expose vendor-specific style as:
+   *   elem.style.WebkitBorderRadius
+   * instead of something like the following, which would be technically incorrect:
+   *   elem.style.webkitBorderRadius
+
+   * Webkit ghosts their properties in lowercase but Opera & Moz do not.
+>>>>>>> build-task
    * Microsoft uses a lowercase `ms` instead of the correct `Ms` in IE8+
    *   erik.eae.net/archives/2008/03/10/21.48.10/
 
@@ -414,7 +440,10 @@
       body.parentNode.removeChild(body);
       docElement.style.overflow = docOverflow;
       // Trigger layout so kinetic scrolling isn't disabled in iOS6+
+<<<<<<< HEAD
       // eslint-disable-next-line
+=======
+>>>>>>> build-task
       docElement.offsetHeight;
     } else {
       div.parentNode.removeChild(div);
@@ -443,6 +472,7 @@
   }
   ;
 
+<<<<<<< HEAD
 
   /**
    * wrapper around getComputedStyle, to fix issues with Firefox returning null when
@@ -481,6 +511,8 @@
 
   ;
 
+=======
+>>>>>>> build-task
   /**
    * nativeTestProps allows for us to use native feature detection functionality if available.
    * some prefixed form, or false, in the case of an unsupported rule
@@ -515,7 +547,11 @@
       }
       conditionText = conditionText.join(' or ');
       return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function(node) {
+<<<<<<< HEAD
         return computedStyle(node, null, 'position') == 'absolute';
+=======
+        return getComputedStyle(node, null).position == 'absolute';
+>>>>>>> build-task
       });
     }
     return undefined;
@@ -572,9 +608,14 @@
     // inside of an SVG element, in certain browsers, the `style` element is only
     // defined for valid tags. Therefore, if `modernizr` does not have one, we
     // fall back to a less used element and hope for the best.
+<<<<<<< HEAD
     // for strict XHTML browsers the hardly used samp element is used
     var elems = ['modernizr', 'tspan', 'samp'];
     while (!mStyle.style && elems.length) {
+=======
+    var elems = ['modernizr', 'tspan'];
+    while (!mStyle.style) {
+>>>>>>> build-task
       afterInit = true;
       mStyle.modElem = createElement(elems.shift());
       mStyle.style = mStyle.modElem.style;
@@ -682,7 +723,10 @@
    * @param {array.<string>} props - An array of properties to test for
    * @param {object} obj - An object or Element you want to use to test the parameters again
    * @param {boolean|object} elem - An Element to bind the property lookup again. Use `false` to prevent the check
+<<<<<<< HEAD
    * @returns {false|*} returns false if the prop is unsupported, otherwise the value that is supported
+=======
+>>>>>>> build-task
    */
   function testDOMProps(props, obj, elem) {
     var item;
@@ -725,12 +769,19 @@
    * @param {HTMLElement|SVGElement} [elem] - An element used to test the property and value against
    * @param {string} [value] - A string of a css value
    * @param {boolean} [skipValueTest] - An boolean representing if you want to test if value sticks when set
+<<<<<<< HEAD
    * @returns {false|string} returns the string version of the property, or false if it is unsupported
+=======
+>>>>>>> build-task
    */
   function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
 
     var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
+<<<<<<< HEAD
       props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+=======
+    props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+>>>>>>> build-task
 
     // did they call .prefixed('boxSizing') or are we just testing a prop?
     if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
